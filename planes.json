@@ -1,9 +1,9 @@
 {
     "Planes":[
-        {"Fibra Optica" : "$200.000"},
-        {"plan Pospago" : "$80.000"},
-        {"Plan Prepago" : "$0 - $120.000"},
-        {"TelHogar+TVFull" : "$100.000"},
-        {"Tel+Tv+Fb" : "$180.000"}
+        {"Plan 1" : "Fibra Optica","precio" : "$250.000"},
+        {"Plan 2" : "Pospago","precio" : "$80.000"},
+        {"Plan 3" : "Prepago","precio" : "$0 - $80.000"},
+        {"Plan 4" : "Telefonia Hogar + TV Full","precio" : "$100.000"},
+        {"Plan 5" : "Telefonia + TV Full + Fibra Optica","precio" : "$200.000"}
         ]
 }

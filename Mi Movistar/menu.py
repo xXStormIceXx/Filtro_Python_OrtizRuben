@@ -35,7 +35,7 @@ while (contador != 6):
           script = os.path.dirname(__file__)
           with open(script+"/planes.json.json") as file:
             data = json.load(file)
-            for client in data["clientes"]:
+            for client in data["Planes"]:
                 print("Nombre", client["nombre"])
                 print("Apellido", client["apellido"])
                 print("")
