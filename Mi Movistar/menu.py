@@ -1,5 +1,6 @@
 import MovistarCRUD as file
-
+import os
+import json
 contador = 0 
 categoria = {}
 while (contador != 6):
@@ -31,13 +32,13 @@ while (contador != 6):
             file.actualizar_tipo_Usuario()
             file.limpiar_pantalla
         if (ingreso2 == 3):
-            script = os.path.dirname(__file__)
-                with open(script+"/planes.json.json") as file:
-                  data = json.load(file)
-                for client in data["clientes"]:
-                    print("Nombre", client["nombre"])
-                    print("Apellido", client["apellido"])
-                    print("")
+          script = os.path.dirname(__file__)
+          with open(script+"/planes.json.json") as file:
+            data = json.load(file)
+            for client in data["clientes"]:
+                print("Nombre", client["nombre"])
+                print("Apellido", client["apellido"])
+                print("")
         if (ingreso2 == 4):
         if (ingreso2 == 5):
         if (ingreso2 == 0):
