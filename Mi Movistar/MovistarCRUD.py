@@ -98,17 +98,17 @@ def guardar_datos(lstPersonal, ruta):
     
     return True
 
-def crear_camper():
+def crear_usuario():
     identificacion = str(input("ingresa el numero de identificación: ")) #Al inicio debes indicar donde quieres ingresar la informacion en  el JSON
     nombre = str(input(" ingresa el nombre: "))
     apellido1 = str(input(" ingresa el primer apellido: "))
     apellido2 = str(input(" ingresa el segundo apellido: "))
-    direccion = str(input(" ingresa la direccion del camper: "))
+    direccion = str(input(" ingresa la direccion del Usuario: "))
     telefono1 = str(input(" ingresa el telefono celular: "))
     telefono2 = str(input(" ingresa el telefono fijo: "))
     edad = str(input(" ingresa la edad: "))
-    estado = str(input(" ingrese el estado actual: "))
-    acudiente = str(input(" ingresa el acudiente: "))
+    estado = str(input(" ingrese el tipo de cliente: "))
+    pys = str(input(" ingresa los PyS contratados: "))
     data = cargar_datos("proyecto_python/data.json")
     id = len(data) + 1;
     nuevo_objeto = {"id": id, 
@@ -121,7 +121,7 @@ def crear_camper():
                     'telefono2':telefono2,
                     'edad':edad,
                     'estado':estado,
-                    'acudiente':acudiente}
+                    'PyS contratados': pys}
     data.append(nuevo_objeto)
     guardar_datos(data, 'proyecto_python/data.json')
 
@@ -130,7 +130,20 @@ def leer_camper():
         data = json.load(archivo)
     if data:
         print("Lista de Campers:")
-        for camper in data:
-            print(f"Identificacion:{camper['identificacion']}, Nombre: {camper['nombre']}, Apellido 1:{camper['apellido1']}, Apellido2:{camper['apellido2']}, Direccion:{camper['direccion']}, Telefono1:{camper['telefono1']}, Telefono2:{camper['telefono2']}, Edad: {camper['edad']}, Estado: {camper['estado']}")
+        for usuario in data:
+            print(f"Identificacion:{usuario['identificacion']}, Nombre: {usuario['nombre']}, Apellido 1:{usuario['apellido1']}, Apellido2:{usuario['apellido2']}, Direccion:{usuario['direccion']}, Telefono1:{usuario['telefono1']}, Telefono2:{usuario['telefono2']}, Edad: {usuario['edad']}, Estado: {usuario['estado']}")
     else:
-        print("No hay Campers para mostrar.")
+        print("No hay Usuarios para mostrar.")
+
+def actualizar_tipo_Usuario(nombre, nueva_edad):
+    try:
+        with open('datos.json', 'r') as archivo:
+            datos = json.load(archivo)
+            for registro in datos:
+                if registro['nombre'] == nombre:
+                    registro['edad'] = nueva_edad
+
+        with open('datos.json', 'w') as archivo:
+            json.dump(datos, archivo, indent=2)
+    except FileNotFoundError:
+        print("No hay registros.")
