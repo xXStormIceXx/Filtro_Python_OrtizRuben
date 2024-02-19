@@ -146,4 +146,4 @@ def actualizar_tipo_Usuario(nombre, nueva_edad):
         with open('datos.json', 'w') as archivo:
             json.dump(datos, archivo, indent=2)
     except FileNotFoundError:
-        print("No hay registros.")
+        print("No hay registros.") 
